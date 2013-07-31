@@ -44,7 +44,7 @@ public class xml extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				pull();
+				sax();
 			}
 		});
 		
@@ -53,7 +53,7 @@ public class xml extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				pull();
+				dom();
 			}
 		});
 
@@ -63,8 +63,7 @@ public class xml extends Activity {
 			try {
 				PullParser = new MyPullxml(); // 创建SaxBookParser实例
 				instream = this.getAssets().open("student.xml");
-				List<Person> persons = PullParser.parse(instream); // 解析输入流
-				
+				List<Person> persons = PullParser.parse(instream); // 解析输入流				
 				
 				MainApplication app = (MainApplication) getApplication();
 				app.setStudents(persons);
@@ -96,8 +95,7 @@ public class xml extends Activity {
 			try {
 				instream = this.getAssets().open("student.xml");
 				parser = new SaxStudentParser(); // 创建SaxBookParser实例
-				List<Person> persons = parser.parse(instream); // 解析输入流
-				
+				List<Person> persons = parser.parse(instream); // 解析输入流				
 				MainApplication app = (MainApplication) getApplication();
 				app.setStudents(persons);
 				
@@ -123,8 +121,7 @@ public class xml extends Activity {
 		try {
 			DomParser = new DomParser(); // 创建SaxBookParser实例
 			instream = this.getAssets().open("student.xml");
-			List<Person> persons = DomParser.parse(instream); // 解析输入流
-			
+			List<Person> persons = DomParser.parse(instream); // 解析输入流			
 			MainApplication app = (MainApplication) getApplication();
 			app.setStudents(persons);
 			
